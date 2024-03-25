@@ -1,0 +1,13 @@
+ThreadTaskAsync/.vs/
+ThreadTaskAsync/Mutex/bin/
+ThreadTaskAsync/Mutex/obj/
+ThreadTaskAsync/Semaphore/bin/
+ThreadTaskAsync/Semaphore/obj/
+ThreadTaskAsync/SemaphorePart1/bin/
+ThreadTaskAsync/SemaphorePart1/obj/
+ThreadTaskAsync/Threads/bin/
+ThreadTaskAsync/Threads/obj/
+ThreadTaskAsync/ThreadTaskAsync/bin/Debug/
+ThreadTaskAsync/ThreadTaskAsync/obj/
+ThreadTaskAsync/ThreadVsTask/obj/
+ThreadTaskAsync/ThreadVsTask/bin/
