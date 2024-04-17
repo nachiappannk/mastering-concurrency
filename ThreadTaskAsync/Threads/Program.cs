@@ -1,46 +1,27 @@
-﻿//Exploring Threads
-
-// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
-
-var thread1 = new Thread(() => MonitorSystem1());
-var thread2 = new Thread(() => MonitorSystem2());
+﻿
+var thread1 = new Thread(() => WriteHash());
 thread1.IsBackground = true;
-thread2.IsBackground = true;
 thread1.Start();
-thread2.Start();
-Thread.Sleep(30 * 1000);
+WriteStar();
 
 
-static void MonitorSystem1()
+static void WriteHash()
 {
+    int i = 0;
     while (true)
     {
-        var value = SimulateReadingSystem1();
-        Console.WriteLine($"System1 value: {value}");
-        Thread.Sleep(1000);
+        i++;
+        Console.WriteLine($"#### {i}");
+        Thread.Sleep(200);
     }
 }
 
-static void MonitorSystem2()
+static void WriteStar()
 {
-    while (true)
+    for (int i = 0; i < 10; i++)
     {
-        var value = SimulateReadingSystem2();
-        Console.WriteLine($"System2 value: {value}");
-        Thread.Sleep(500);
+        Console.WriteLine($"* {i}");
+        Thread.Sleep(250);
     }
 }
 
-
-static int SimulateReadingSystem1()
-{
-    Thread.Sleep(100);
-    return new Random().Next(1000);
-}
-
-static int SimulateReadingSystem2()
-{
-    Thread.Sleep(130);
-    return new Random().Next(1000);
-}
