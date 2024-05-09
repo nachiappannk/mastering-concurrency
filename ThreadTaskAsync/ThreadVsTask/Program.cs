@@ -1,28 +1,10 @@
-﻿//Task are better than Threads
-// See https://aka.ms/new-console-template for more information
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
-Console.WriteLine("Hello, World!");
-
-
-int[] numbers = new int[] { 
-    104179, 102342, 104183, 104207, 
-    104233, 104239, 104243, 104281,
-    104287, 104297, 104309, 104311,
-    104323, 104327, 104347, 104369,
-    104381, 104383, 104393, 104399,
-    104417, 104231 };
-
-List<int> inputNumbers = new List<int>(numbers);
-for (int i = 0; i < 30; i++)
-{
-    inputNumbers.AddRange(numbers);
-}
+List<int> inputNumbers = GetInputNumbers();
 
 MeasureTime("Tasks", () => { CheckViaTasks(inputNumbers); });
 Task.Delay(1000).Wait();
 MeasureTime("Thread", () => { CheckViaThread(inputNumbers); });
-
 
 static void MeasureTime(string name, Action action)
 {
@@ -30,21 +12,7 @@ static void MeasureTime(string name, Action action)
     sw.Start();
     action();
     sw.Stop();
-    Console.WriteLine("Elapsed for {0}={1}", name, sw.ElapsedMilliseconds);
-}
-
-
-static bool IsPrime(int number)
-{
-    for (int i = 2; i < number - 1; i++)
-    {
-        var reminder = number % i;
-        if (reminder == 0)
-        {
-            return false;
-        }
-    }
-    return true;
+    Console.WriteLine("Elapsed for {0} = {1} ms", name, sw.ElapsedMilliseconds);
 }
 
 static void CheckViaThread(List<int> inputNumbers)
@@ -82,4 +50,36 @@ static void CheckViaTasks(List<int> inputNumbers)
         Task.WaitAll(tasks.ToArray());
 
     }).Wait();
+}
+
+static bool IsPrime(int number)
+{
+    for (int i = 2; i < number - 1; i++)
+    {
+        var reminder = number % i;
+        if (reminder == 0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+static List<int> GetInputNumbers()
+{
+    int[] numbers = new int[] {
+    104179, 102342, 104183, 104207,
+    104233, 104239, 104243, 104281,
+    104287, 104297, 104309, 104311,
+    104323, 104327, 104347, 104369,
+    104381, 104383, 104393, 104399,
+    104417, 104231 };
+
+    List<int> inputNumbers = new List<int>(numbers);
+    for (int i = 0; i < 30; i++)
+    {
+        inputNumbers.AddRange(numbers);
+    }
+
+    return inputNumbers;
 }

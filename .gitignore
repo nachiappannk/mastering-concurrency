@@ -11,3 +11,7 @@ ThreadTaskAsync/ThreadTaskAsync/bin/Debug/
 ThreadTaskAsync/ThreadTaskAsync/obj/
 ThreadTaskAsync/ThreadVsTask/obj/
 ThreadTaskAsync/ThreadVsTask/bin/
+ThreadTaskAsync/PseudoParallel/obj/
+ThreadTaskAsync/TasksDisplayingProcessorId/obj/
+ThreadTaskAsync/PseudoParallel/bin/
+ThreadTaskAsync/TasksDisplayingProcessorId/bin/
